@@ -11,128 +11,159 @@
 <style>
 html, body {
   margin: 0;
-  background: #060708;
+  background: #0a0b0d;
   color: #d2d4d7;
   font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
 }
+
 #wrap {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 0 28px;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
   position: relative;
 }
-#wrap::before {
-  content:"";
-  position: absolute;
-  inset: -40px;
-  background: 
-    linear-gradient(135deg, rgba(255,255,255,0.05), transparent 40%),
-    linear-gradient(315deg, rgba(0,0,0,0.6), transparent 60%);
-  pointer-events: none;
-}
-.noise {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2'/%3E%3C/filter%3E%3Crect width='72' height='72' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
-}
+
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
+
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 52px;
+  font-size: 48px;
   letter-spacing: 0.25em;
   margin: 0;
   font-weight: 900;
+  background: linear-gradient(90deg, #c0c0c0, #888, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
 }
+
 .tag {
   font-size: 12px;
   letter-spacing: 0.18em;
-  opacity: 0.6;
+  opacity: 0.7;
   padding-bottom: 6px;
   font-family: 'Rajdhani', sans-serif;
 }
+
+/* Metallic Section Styling */
 .section {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  margin-bottom: 56px;
-  padding: 28px;
-  background: linear-gradient(180deg, #151821, #0b0d12);
-  border: 1px solid #1e222b;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), inset 0 -1px 0 rgba(0,0,0,.6);
+  margin-bottom: 36px;
+  padding: 20px 20px 20px 40px; /* space for left bar */
+  border-radius: 6px;
+  border: 1px solid #2a2f39;
+  background: linear-gradient(145deg, #1c1f25 0%, #141619 100%);
+  box-shadow: inset 0 1px 3px rgba(255,255,255,0.05), inset 0 -1px 3px rgba(0,0,0,0.6);
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
+/* Metallic left bar with subtle crimson */
+.section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  border-radius: 4px 0 0 4px;
+  background: linear-gradient(180deg, #888 0%, #aa1010 50%, #666 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.section:hover {
+  background: linear-gradient(145deg, #2a2f39 0%, #1a1d21 100%);
+  box-shadow: 0 0 20px rgba(255,255,255,0.08), 0 0 8px rgba(170,16,16,0.3), inset 0 1px 5px rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
 .section h2 {
   font-family: 'Orbitron', sans-serif;
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   font-size: 18px;
   letter-spacing: 0.15em;
-  color: #b9bcc2;
+  background: linear-gradient(90deg, #c0c0c0, #888, #e0e0e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
 }
+
 .section p {
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.6;
   opacity: 0.9;
-  font-family: 'Rajdhani', sans-serif;
+  margin: 0;
 }
+
 .spec-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
-  margin-top: 18px;
+  gap: 10px 20px;
+  margin-top: 12px;
 }
+
 .spec {
   font-size: 13px;
-  padding: 6px 0;
+  padding: 4px 0;
   border-bottom: 1px solid #1c2028;
   opacity: 0.85;
-  font-family: 'Rajdhani', sans-serif;
 }
+
 .rule {
   height: 2px;
-  margin: 24px 0;
+  margin: 20px 0;
   background: linear-gradient(90deg, transparent, #2a2f39, transparent);
 }
-.section-right {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.section-right img {
-  width: 100%;
-  border-radius: 6px;
-  object-fit: cover;
-}
+
 footer {
-  margin-top: 72px;
+  margin-top: 60px;
   font-size: 12px;
   opacity: 0.45;
   text-align: right;
   font-family: 'Rajdhani', sans-serif;
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 900px) {
-  .section {
-    grid-template-columns: 1fr;
-  }
-  .section-right {
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 12px;
-  }
-  .section-right img {
-    min-width: 200px;
-  }
+/* Sleek metallic bullets for objectives list */
+.platform-objectives ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.platform-objectives li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.9;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Small sleek metallic bullet with subtle crimson */
+.platform-objectives li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #bbb, #aa1010, #888);
+  box-shadow: 0 0 2px rgba(255,255,255,0.2);
 }
 </style>
 </head>
 <body>
-<div class="noise"></div>
 <div id="wrap">
 <header>
 <h1>PROTOGEAR</h1>
@@ -140,23 +171,24 @@ footer {
 </header>
 
 <div class="section">
-<div>
-<h2>OVERVIEW</h2>
+<h2>VISION</h2>
 <p>
-ProtoGear is a dedicated platform for independent and AA game development, combining a
-purpose-built hardware environment with a lightweight, BSD-based operating system.
-The platform emphasizes predictable performance, developer-friendly tools, and curated
-game experiences, while remaining affordable and accessible to players.
+ProtoGear is designed to spark creativity, focusing on meaningful gaming experiences
+over spectacle. It offers developers a defined platform and players a space to immerse
+in story, challenge, and artistry, free from unnecessary distractions.
 </p>
-</div>
-<div class="section-right">
-<img src="https://images.unsplash.com/photo-1527430253228-e93688616381?crop=entropy&fit=crop&auto=format&h=200&w=300&q=80" alt="Metallic aesthetic 1">
-<img src="https://images.unsplash.com/photo-1587202372775-870b755f7d45?crop=entropy&fit=crop&auto=format&h=200&w=300&q=80" alt="Metallic aesthetic 2">
-</div>
 </div>
 
 <div class="section">
-<div>
+<h2>PHILOSOPHY</h2>
+<p>
+Simplicity, accessibility, and clarity drive the design of ProtoGear. Every detail, from
+hardware to runtime, is carefully crafted to reward thoughtful game design and to create
+an immersive, focused experience for players.
+</p>
+</div>
+
+<div class="section">
 <h2>HARDWARE SPECIFICATIONS</h2>
 <div class="spec-grid">
 <div class="spec">CPU: 6 cores / 12 threads (Zen 2 / Zen 3)</div>
@@ -171,53 +203,34 @@ game experiences, while remaining affordable and accessible to players.
 <div class="spec">Storage: eMMC for OS, NVMe for games</div>
 </div>
 </div>
-<div class="section-right">
-<img src="https://images.unsplash.com/photo-1581091012184-7a19c45b08b2?crop=entropy&fit=crop&h=200&w=300&q=80" alt="CPU closeup">
-<img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?crop=entropy&fit=crop&h=200&w=300&q=80" alt="GPU closeup">
-</div>
-</div>
 
 <div class="section">
-<div>
-<h2>SOFTWARE PLATFORM</h2>
+<h2>SOFTWARE EXPERIENCE</h2>
 <p>
-The console runs a BSD-based OS with a custom lightweight window manager.
-Games execute on the ProtoGear runtime, which mediates access to graphics, audio,
-input, storage, networking, and memory allocation. Developers use the ProtoGear SDK
-to target the runtime efficiently.
+A lightweight BSD-based OS with a custom window manager delivers a stable, efficient
+runtime. Developers interact directly with the console through the ProtoGear runtime,
+creating optimized experiences for both creativity and performance.
 </p>
 </div>
-<div class="section-right">
-<img src="https://images.unsplash.com/photo-1581092322942-b8c37f66b23f?crop=entropy&fit=crop&h=200&w=300&q=80" alt="Software interface aesthetic">
-</div>
-</div>
 
 <div class="section">
-<div>
 <h2>DEVELOPER FOCUS</h2>
 <p>
-ProtoGear emphasizes quality and meaningful content over scope creep. Developers can
-publish cross-platform or console-exclusive titles, with incentive structures that
-reward user-generated content, mods, and additional replay value. The console ships
-ready-to-play, with launch exclusives and a carefully curated initial game library.
+ProtoGear encourages fully realized, thoughtful games. Cross-platform or console-exclusive
+titles are supported, with incentives for community content, mods, and replay value. The
+platform promotes meaningful creativity while maintaining system constraints.
 </p>
 </div>
-</div>
 
-<div class="section">
-<div>
+<div class="section platform-objectives">
 <h2>PLATFORM OBJECTIVES</h2>
 <ul>
-<li>Deliver a defined, accessible, and stable hardware/software platform.</li>
-<li>Provide an affordable console package with high-quality games included.</li>
-<li>Encourage developer creativity while maintaining system constraints.</li>
-<li>Focus on offline-first gameplay with optional online functionality.</li>
-<li>Support community content and replay value through mod-friendly systems.</li>
+<li>Deliver a stable, developer-focused platform with clear constraints.</li>
+<li>Provide an affordable console with a curated game library.</li>
+<li>Encourage creativity and thoughtful design within defined limits.</li>
+<li>Focus on immersive offline-first gameplay with optional online functionality.</li>
+<li>Support community content, mods, and replay value.</li>
 </ul>
-</div>
-<div class="section-right">
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&fit=crop&h=200&w=300&q=80" alt="Aesthetic objectives">
-</div>
 </div>
 
 <footer>
@@ -226,4 +239,3 @@ ProtoGear is an independent commercial project under unified creative and techni
 </div>
 </body>
 </html>
-
