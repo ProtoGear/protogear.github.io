@@ -2,247 +2,209 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ProtoGear</title>
+<title>PROTOGEAR</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="pgico.png">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
+/* ===== BASE ===== */
 html, body {
   margin: 0;
-  background: #0a0b0d;
-  color: #d2d4d7;
-  font-family: 'Rajdhani', Arial, Helvetica, sans-serif;
+  background: #0b0c10;
+  color: #d6d8dd;
+  font-family: 'Rajdhani', Arial, sans-serif;
 }
 
+a {
+  color: #ff2a2a;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== WRAP ===== */
 #wrap {
   max-width: 800px;
-  margin: 60px auto;
+  margin: 50px auto;
   padding: 0 20px;
-  position: relative;
 }
 
+/* ===== HEADER ===== */
 header {
   margin-bottom: 40px;
 }
 
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 48px;
+  font-size: 46px;
   letter-spacing: 0.25em;
   margin: 0;
-  font-weight: 900;
-  background: linear-gradient(90deg, #c0c0c0, #888, #e0e0e0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+  color: #e6e6e6;
+  text-shadow: 0 0 6px rgba(255,42,42,0.35);
 }
 
 .tag {
+  margin-top: 6px;
   font-size: 12px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   opacity: 0.7;
-  padding-bottom: 6px;
-  font-family: 'Rajdhani', sans-serif;
 }
 
-/* Metallic Section Styling */
+/* ===== SECTIONS ===== */
 .section {
-  margin-bottom: 36px;
-  padding: 20px 20px 20px 40px; /* space for left bar */
-  border-radius: 6px;
-  border: 1px solid #2a2f39;
-  background: linear-gradient(145deg, #1c1f25 0%, #141619 100%);
-  box-shadow: inset 0 1px 3px rgba(255,255,255,0.05), inset 0 -1px 3px rgba(0,0,0,0.6);
-  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
   position: relative;
-  overflow: hidden;
-}
-
-/* Metallic left bar with subtle crimson */
-.section::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 6px;
-  height: 100%;
-  border-radius: 4px 0 0 4px;
-  background: linear-gradient(180deg, #888 0%, #aa1010 50%, #666 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 6s linear infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.section:hover {
-  background: linear-gradient(145deg, #2a2f39 0%, #1a1d21 100%);
-  box-shadow: 0 0 20px rgba(255,255,255,0.08), 0 0 8px rgba(170,16,16,0.3), inset 0 1px 5px rgba(255,255,255,0.1);
-  transform: translateY(-2px);
+  padding: 18px 0 18px 18px;
+  margin-bottom: 24px;
+  border-left: 2px solid #ff2a2a;
 }
 
 .section h2 {
+  margin: 0 0 10px;
   font-family: 'Orbitron', sans-serif;
-  margin: 0 0 12px;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.15em;
-  background: linear-gradient(90deg, #c0c0c0, #888, #e0e0e0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+  color: #f0f0f0;
 }
 
 .section p {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
   margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.95;
 }
 
+/* ===== SPECS ===== */
 .spec-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px 20px;
-  margin-top: 12px;
+  gap: 6px 16px;
 }
 
 .spec {
   font-size: 13px;
-  padding: 4px 0;
-  border-bottom: 1px solid #1c2028;
-  opacity: 0.85;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #1a1c22;
+  opacity: 0.9;
 }
 
-.rule {
-  height: 2px;
-  margin: 20px 0;
-  background: linear-gradient(90deg, transparent, #2a2f39, transparent);
-}
-
-footer {
-  margin-top: 60px;
-  font-size: 12px;
-  opacity: 0.45;
-  text-align: right;
-  font-family: 'Rajdhani', sans-serif;
-}
-
-/* Sleek metallic bullets for objectives list */
+/* ===== OBJECTIVES ===== */
 .platform-objectives ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
 }
 
 .platform-objectives li {
+  padding-left: 14px;
+  margin-bottom: 8px;
   position: relative;
-  padding-left: 18px;
-  margin-bottom: 10px;
   font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.9;
-  font-family: 'Rajdhani', sans-serif;
 }
 
-/* Small sleek metallic bullet with subtle crimson */
 .platform-objectives li::before {
-  content: '';
+  content: "▸";
   position: absolute;
   left: 0;
-  top: 7px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #bbb, #aa1010, #888);
-  box-shadow: 0 0 2px rgba(255,255,255,0.2);
+  color: #ff2a2a;
+}
+
+/* ===== HOVER SWAG ===== */
+.section:hover {
+  border-left-color: #ffffff;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 50px;
+  font-size: 12px;
+  opacity: 0.45;
+  text-align: right;
 }
 </style>
 </head>
+
 <body>
 <div id="wrap">
+
 <header>
-<h1>PROTOGEAR</h1>
-<div class="tag">INDIE / AA GAME CONSOLE</div>
+  <h1>PROTOGEAR</h1>
+  <div class="tag">INDIE / AA GAME CONSOLE</div>
 </header>
 
 <div class="section">
 <h2>VISION</h2>
 <p>
-ProtoGear is designed to spark creativity, focusing on meaningful gaming experiences
-over spectacle. It offers developers a defined platform and players a space to immerse
-in story, challenge, and artistry, free from unnecessary distractions.
+ProtoGear exists to prioritize creativity and intent over spectacle. It offers a
+defined platform for developers and a focused, immersive space for players.
 </p>
 </div>
 
 <div class="section">
 <h2>PHILOSOPHY</h2>
 <p>
-Simplicity, accessibility, and clarity drive the design of ProtoGear. Every detail, from
-hardware to runtime, is carefully crafted to reward thoughtful game design and to create
-an immersive, focused experience for players.
+Simplicity, clarity, and constraint drive ProtoGear. Every system choice is made to
+reward thoughtful design and meaningful play.
 </p>
 </div>
 
 <div class="section">
 <h2>HARDWARE SPECIFICATIONS</h2>
 <div class="spec-grid">
-<div class="spec">CPU: 6 cores / 12 threads (Zen 2 / Zen 3)</div>
-<div class="spec">CPU Clock: 3.0–3.3 GHz base, ~4.0 GHz boost</div>
-<div class="spec">L2 Cache: 3 MB</div>
-<div class="spec">L3 Cache: 12–16 MB</div>
-<div class="spec">GPU: RDNA 2 (10–12 CUs)</div>
-<div class="spec">GPU Clock: 1.6–2.0 GHz</div>
-<div class="spec">Compute: 2.0–2.5 TFLOPS</div>
-<div class="spec">Memory: 4 GB DDR4-3200 (dual-channel)</div>
-<div class="spec">Performance Target: 900p @ 60 FPS</div>
-<div class="spec">Storage: eMMC for OS, NVMe for games</div>
+  <div class="spec">CPU: 6 cores / 12 threads (Zen 2 / 3)</div>
+  <div class="spec">CPU Clock: 3.0–4.0 GHz</div>
+  <div class="spec">GPU: RDNA 2 (10–12 CUs)</div>
+  <div class="spec">Compute: 2.0–2.5 TFLOPS</div>
+  <div class="spec">Memory: 4 GB DDR4-3200</div>
+  <div class="spec">Target: 900p @ 60 FPS</div>
+  <div class="spec">Storage: eMMC + NVMe</div>
+  <div class="spec">OS: BSD-based</div>
 </div>
 </div>
 
 <div class="section">
 <h2>SOFTWARE EXPERIENCE</h2>
 <p>
-A lightweight BSD-based OS with a custom window manager delivers a stable, efficient
-runtime. Developers interact directly with the console through the ProtoGear runtime,
-creating optimized experiences for both creativity and performance.
+A lightweight BSD-based OS with a custom window manager provides a stable and efficient
+runtime optimized for games.
 </p>
 </div>
 
 <div class="section">
 <h2>DEVELOPER FOCUS</h2>
 <p>
-ProtoGear encourages fully realized, thoughtful games. Cross-platform or console-exclusive
-titles are supported, with incentives for community content, mods, and replay value. The
-platform promotes meaningful creativity while maintaining system constraints.
+ProtoGear supports complete, replayable games, community content, and mods while
+maintaining a clear platform identity.
 </p>
 </div>
 
 <div class="section platform-objectives">
 <h2>PLATFORM OBJECTIVES</h2>
 <ul>
-<li>Deliver a stable, developer-focused platform with clear constraints.</li>
-<li>Provide an affordable console with a curated game library.</li>
-<li>Encourage creativity and thoughtful design within defined limits.</li>
-<li>Focus on immersive offline-first gameplay with optional online functionality.</li>
-<li>Support community content, mods, and replay value.</li>
+  <li>Clear hardware constraints</li>
+  <li>Affordable, focused console</li>
+  <li>Offline-first gameplay</li>
+  <li>Community content and mods</li>
+  <li>Longevity through simplicity</li>
 </ul>
 </div>
 
 <div class="section">
 <h2>JOIN OUR DISCORD</h2>
 <p>
-Connect with the ProtoGear community on <a href="https://discord.gg/WuKUYKrBkb" target="_blank" style="color:#aa1010;text-decoration:underline;">Discord</a> to discuss development, share ideas, and stay updated.
+<a href="https://discord.gg/WuKUYKrBkb" target="_blank">
+Connect with the ProtoGear community
+</a>
 </p>
 </div>
-  
+
 <footer>
-ProtoGear is an independent commercial project under unified creative and technical direction.
+ProtoGear is an independent commercial project.
 </footer>
+
 </div>
 </body>
 </html>
